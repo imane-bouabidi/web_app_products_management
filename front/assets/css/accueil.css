@@ -1,0 +1,63 @@
+#cards_products{
+    width: 80%;
+    float: right;
+}
+.Categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 82%;
+    float: right;
+}
+
+.ajouter{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.ajouter a{
+    text-decoration: none;
+    margin-right: 20px;
+}
+.Categories img{
+    width: 80px;
+    margin-left: 3%;
+}
+
+.categorie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+}
+
+
+.chekbox-div{
+    margin-left: 25px;
+}
+.filtres{
+    width: 18%;
+    margin: 2%;
+    display: block;
+}
+
+.products{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    float: right;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
