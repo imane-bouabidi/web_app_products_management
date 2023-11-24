@@ -13,14 +13,14 @@
     include_once('header.php');
   ?>
   <div class="container mt-5">
-    <h2>Ajouter un Produit</h2>
+    <h2>Ajouter une categorie</h2>
 
     <form action="action_product.php" method="post" enctype="multipart/form-data">
 
       <!-- Titre du Produit -->
       <div class="form-group">
-        <label for="productName">Titre du Produit:</label>
-        <input type="text" class="form-control" id="productName" name="productName" value="Nom du Produit">
+        <label for="productName">Titre du Categorie:</label>
+        <input type="text" class="form-control" id="productName" name="productName" placeholder="Nom du Categorie">
       </div>
 
       <!-- Bouton Soumettre -->

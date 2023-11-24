@@ -24,6 +24,11 @@
             <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
                 <p>Arduino</p>
             </div>
+
+            <div class="ajouter">
+                <a href="ajouter_pro.php">Ajouter produits</a>
+                <a href="ajouter_cat.php">Ajouter categorie</a>
+            </div>
         </div>
         <div class="filtres">
             <h2>Prix</h2>
@@ -44,10 +49,6 @@
                 <label for="solde">Offre solde</label>
             </div>
         </div>
-        <div class="ajouter">
-                <a href="ajouter_pro.php">Ajouter produits</a>
-                <a href="ajouter_cat.php">Ajouter categorie</a>
-            </div>
         </section>
 
             <div class="container mt-5">
