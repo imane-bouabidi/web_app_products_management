@@ -11,7 +11,7 @@
         include_once('header.php');
     ?>
 <div class="container mt-5">
-  <h2>Modifier un Produit</h2>
+  <h2>Ajouter un Produit</h2>
 
   <form action="action_product.php" method="post" enctype="multipart/form-data">
     <!-- Choisir une image -->

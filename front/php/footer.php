@@ -6,7 +6,7 @@
     <title>footer</title>
 </head>
 <body>
-<div class="card-header text-center">
+<div class="card-header text-center mt-auto">
     &copy; ElectroNacer, all rights are reserved
   </div>
 </body>
