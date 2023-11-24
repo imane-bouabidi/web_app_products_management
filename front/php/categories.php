@@ -11,43 +11,11 @@
         include_once('header_admin.php');
     ?>
     <section id="products_body">
-        <div class="Categories">
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
-            </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Raspberry</p>
-            </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
+            <div class="ajouter">
+                <a href="ajouter_cat.php">Ajouter categorie</a>
             </div>
 
-            <div class="ajouter">
-                <a href="ajouter_pro.php">Ajouter produits</a>
-            </div>
-        </div>
-        <div class="filtres">
-            <h2>Prix</h2>
-            <div class="chekbox-div">
-                <input type="radio" id="Pas_chere" name="Pas_chere">
-                <label for="Pas_chere">Pas chere</label>
-            </div>
-            <div class="chekbox-div">
-                <input type="radio" id="Bon" name="Bon">
-                <label for="Bon">Bon</label>
-            </div>
-            <div class="chekbox-div">
-                <input type="radio" id="chere" name="chere">
-                <label for="chere">Chere</label>
-            </div>
-            <div class="chekbox-div">
-                <input type="checkbox" id="solde" name="solde">
-                <label for="solde">Offre solde</label>
-            </div>
-        </div>
+       
         </section>
 
             <div class="container mt-5">
@@ -62,7 +30,7 @@
                                         <h5 class="card-title">Product 1</h5>
                                         <p class="card-text">Description of Product 1.</p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="modifier.php" class="btn btn-primary">Modifier</a>
+                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
                                         </div>
                                     </div>
@@ -77,7 +45,7 @@
                                         <h5 class="card-title">Product 2</h5>
                                         <p class="card-text">Description of Product 2.</p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="modifier.php" class="btn btn-primary">Modifier</a>
+                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal2">Supprimer</button>
                                         </div>
                                     </div>
@@ -92,7 +60,7 @@
                                         <h5 class="card-title">Product 2</h5>
                                         <p class="card-text">Description of Product 2.</p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="modifier.php" class="btn btn-primary">Modifier</a>
+                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal2">Supprimer</button>
                                         </div>
                                     </div>
