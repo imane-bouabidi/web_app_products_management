@@ -15,7 +15,7 @@ create table if not EXISTS `admin`(
 );
 
 create table if not EXISTS `products`(
-	reference varchar(20),
+	  reference varchar(20),
     ettiquette varchar(20),
     code_barre int(20),
     prix_achat float(20),
@@ -52,3 +52,6 @@ ALTER TABLE products
 ADD CONSTRAINT fk_categorie_name
 FOREIGN KEY (categorie)
 REFERENCES categorie(nom);
+
+alter table products 
+MODIFY COLUMN reference int(30) AUTO_INCREMENT;

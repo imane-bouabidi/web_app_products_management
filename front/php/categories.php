@@ -9,26 +9,34 @@
 <body>
     <?php
         include_once('header_admin.php');
+        @include_once '../../back/connexion.php';
+        $request = "SELECT * FROM categorie";
+        $stmt = mysqli_query($conn,$request);    
     ?>
     <section id="products_body">
             <div class="ajouter">
                 <a href="ajouter_cat.php">Ajouter categorie</a>
             </div>
 
-       
         </section>
 
             <div class="container mt-5">
                 <div class="row">
                     <div class="container mt-5">
                         <div class="row">
+                            <?php
+                                while($row = mysqli_fetch_assoc($stmt)){
+                                    $nom = $row['nom'];
+                                    $desc = $row['description'];
+                                    $img = $row['image'];
+                            ?>
                             <!-- Product Card 1 -->
                             <div class="col-md-4 mb-4">
                                 <div class="card">
-                                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
+                                    <img src="../assets/img/<?php echo $img; ?>.png" class="card-img-top" alt="Product Image">
                                     <div class="card-body">
-                                        <h5 class="card-title">Product 1</h5>
-                                        <p class="card-text">Description of Product 1.</p>
+                                        <h5 class="card-title"><?php echo $nom; ?></h5>
+                                        <p class="card-text"><?php echo $desc; ?></p>
                                         <div class="d-flex justify-content-between">
                                             <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
@@ -36,38 +44,9 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Product Card 2 -->
-                            <div class="col-md-4 mb-4">
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Product 2</h5>
-                                        <p class="card-text">Description of Product 2.</p>
-                                        <div class="d-flex justify-content-between">
-                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal2">Supprimer</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product Card 3 -->
-                            <div class="col-md-4 mb-4">
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Image">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Product 2</h5>
-                                        <p class="card-text">Description of Product 2.</p>
-                                        <div class="d-flex justify-content-between">
-                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal2">Supprimer</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Card 3 -->
-                            
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -124,6 +103,7 @@
 </div>
 <?php
     include_once('footer.php');
+
 ?>
 
 </body>

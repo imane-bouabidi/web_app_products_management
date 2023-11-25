@@ -17,31 +17,53 @@
     <!-- Choisir une image -->
     <div class="form-group">
       <label for="productImage">Image du Produit:</label>
-      <input type="file" class="form-control-file" id="productImage" name="productImage">
+      <input required type="file" class="form-control-file" id="productImage" name="productImage">
     </div>
 
     <!-- Titre du Produit -->
     <div class="form-group">
       <label for="productName">Titre du Produit:</label>
-      <input type="text" class="form-control" id="productName" name="productName" value="Nom du Produit">
+      <input required type="text" class="form-control" id="productName" name="productName" value="Nom du Produit">
+    </div>
+    
+    <!-- Description du Produit -->
+    <div class="form-group">
+      <label for="productName">Description du Produit:</label>
+      <input required type="text" class="form-control" id="description" name="description" value="Description du Produit">
+    </div>
+    
+    <!-- Code barre du Produit -->
+    <div class="form-group">
+      <label for="code_barre">Code barre du Produit:</label>
+      <input required type="text" class="form-control" id="code_barre" name="code_barre" value="Code barre du Produit">
     </div>
 
     <!-- Quantité Minimum -->
     <div class="form-group">
       <label for="minQuantity">Quantité Minimum:</label>
-      <input type="number" class="form-control" id="minQuantity" name="minQuantity" value="10">
+      <input required type="number" class="form-control" id="minQuantity" name="minQuantity" value="10">
     </div>
 
     <!-- Quantité en Stock -->
     <div class="form-group">
       <label for="stockQuantity">Quantité en Stock:</label>
-      <input type="number" class="form-control" id="stockQuantity" name="stockQuantity" value="50">
+      <input required type="number" class="form-control" id="stockQuantity" name="stockQuantity" value="50">
     </div>
 
     <!-- Prix Unitaire -->
     <div class="form-group">
       <label for="unitPrice">Prix Unitaire:</label>
-      <input type="number" step="0.01" class="form-control" id="unitPrice" name="unitPrice" value="19.99">
+      <input required type="number" step="0.01" class="form-control" id="unitPrice" name="unitPrice" value="19.99">
+    </div>
+    <!-- Prix Achat-->
+    <div class="form-group">
+      <label for="prix_achat">Prix Achat:</label>
+      <input required type="number" step="0.01" class="form-control" id="prix_achat" name="prix_achat" value="19.99">
+    </div>
+    <!-- Offre Prix -->
+    <div class="form-group">
+      <label for="unitPrice">Offre Prix:</label>
+      <input required type="number" step="0.01" class="form-control" id="offre_prix" name="offre_prix" value="19.99">
     </div>
 
     <!-- Catégorie -->
@@ -56,7 +78,7 @@
     </div>
 
     <!-- Bouton Soumettre -->
-    <button type="submit" class="btn btn-primary">Soumettre</button>
+    <button type="submit" name="submit" class="btn btn-primary">Soumettre</button>
   </form>
 </div>
 

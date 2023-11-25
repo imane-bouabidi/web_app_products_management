@@ -15,16 +15,29 @@
   <div class="container mt-5">
     <h2>Ajouter une categorie</h2>
 
-    <form action="action_product.php" method="post" enctype="multipart/form-data">
+    <form action="action_cat.php" method="post" enctype="multipart/form-data">
 
-      <!-- Titre du Produit -->
+        <!-- Titre du Produit -->
+        <div class="form-group">
+          <label for="catName">Titre du Categorie:</label>
+          <input required type="text" class="form-control" id="catName" name="catName" placeholder="Nom du Categorie">
+        </div>
+        
+        
+        <!-- Description du Categorie -->
+        <div class="form-group">
+          <label for="catDescription">Description du Categorie:</label>
+          <input required type="text" class="form-control" id="catDescription" name="catDescription" placeholder="Description du Categorie">
+        </div>
+
+          <!-- Choisir une image -->
       <div class="form-group">
-        <label for="productName">Titre du Categorie:</label>
-        <input type="text" class="form-control" id="productName" name="productName" placeholder="Nom du Categorie">
+        <label for="catImage">Image du Categorie:</label>
+        <input required type="file" accept="image/png, image/jpg" class="form-control-file" id="catImage" name="catImage">
       </div>
 
       <!-- Bouton Soumettre -->
-      <button type="submit" class="btn btn-primary">Soumettre</button>
+      <button type="submit" name="submit" class="btn btn-primary">Soumettre</button>
     </form>
   </div>
 
