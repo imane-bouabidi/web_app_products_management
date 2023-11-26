@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/accueil.css">
   <title>Liste des Utilisateurs</title>
 </head>
 <body>
 <?php
         include_once('header_admin.php');
+        @include_once '../../back/connexion.php';
+        $request = "SELECT * FROM users";
+        $stmt = mysqli_query($conn,$request);   
     ?>
-
+            <div class="ajouter">
+                <a href="ajouter_user.php">Ajouter user</a>
+            </div>
 <div class="container mt-5">
   <h2>Liste des Utilisateurs</h2>
 
@@ -26,28 +32,23 @@
     </thead>
     <tbody>
       <!-- Remplacez ces données fictives par les données de votre base de données -->
+      <?php
+          while($row = mysqli_fetch_assoc($stmt)){
+      ?>
       <tr>
-        <td>utilisateur1</td>
-        <td>utilisateur1@example.com</td>
-        <td>********</td>
-        <td>Non Validé</td>
+        <td><?php echo $row['login'] ?></td>
+        <td><?php echo $row['email'] ?></td>
+        <td><?php echo $row['password'] ?></td>
+        <td><?php echo $row['active_account'] ?></td>
         <td>
           <button type="button" class="btn btn-success">Valider</button>
           <button type="button" class="btn btn-danger">Supprimer</button>
           <button type="button" class="btn btn-primary">Promouvoir Admin</button>
         </td>
       </tr>
-      <tr>
-        <td>utilisateur2</td>
-        <td>utilisateur2@example.com</td>
-        <td>********</td>
-        <td>Validé</td>
-        <td>
-          <button type="button" class="btn btn-danger">Supprimer</button>
-          <button type="button" class="btn btn-primary">Promouvoir Admin</button>
-        </td>
-      </tr>
-      <!-- Ajoutez plus de lignes pour d'autres utilisateurs -->
+      <?php
+        }
+      ?>
     </tbody>
   </table>
 </div>

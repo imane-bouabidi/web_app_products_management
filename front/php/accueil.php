@@ -7,23 +7,23 @@
     <title>Accueil</title>
 </head>
 <body>
-    <?php
+<?php
         include_once('header.php');
+        @include_once '../../back/connexion.php';
+        $request = "SELECT * FROM categorie";
+        $stmt = mysqli_query($conn,$request);   
+        $nom = $row['nom'];
     ?>
     <section id="products_body">
         <div class="Categories">
+          <?php while($row = mysqli_fetch_assoc($stmt)){?>
             <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
+            <a href=""><img src="../assets/img/<?php echo $row['image']?>.png" alt=""></a> 
+                <p><?php echo $nom ?></p>
             </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Raspberry</p>
-            </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
-            </div>
+          <?php
+            }
+          ?>
 
         </div>
         <div class="filtres">

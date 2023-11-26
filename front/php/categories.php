@@ -38,7 +38,7 @@
                                         <h5 class="card-title"><?php echo $nom; ?></h5>
                                         <p class="card-text"><?php echo $desc; ?></p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="modifier_cat.php" class="btn btn-primary">Modifier</a>
+                                            <a href="modifier_cat.php?edit_cat=<?php echo $row['nom']; ?>" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
                                         </div>
                                     </div>

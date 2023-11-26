@@ -47,11 +47,11 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`nom`),
   ADD UNIQUE KEY `nom_cat` (`nom`);
   
-  
 ALTER TABLE products
 ADD CONSTRAINT fk_categorie_name
 FOREIGN KEY (categorie)
-REFERENCES categorie(nom);
+REFERENCES categorie(nom)
+ON UPDATE CASCADE;
 
 alter table products 
 MODIFY COLUMN reference int(30) AUTO_INCREMENT;

@@ -8,8 +8,11 @@
 </head>
 <body>
 <?php
-        include_once('header.php');
-    ?>
+    include_once('header_admin.php');
+    @include_once '../../back/connexion.php';
+    $request = "SELECT nom FROM categorie";
+    $stmt = mysqli_query($conn,$request);   
+?>
 <div class="container mt-5">
   <h2>Ajouter un Produit</h2>
 
@@ -70,10 +73,11 @@
     <div class="form-group">
       <label for="productCategory">Catégorie:</label>
       <select class="form-control" id="productCategory" name="productCategory">
-        <option value="Electronique">Electronique</option>
-        <option value="Vêtements">Vêtements</option>
-        <option value="Alimentation">Alimentation</option>
-        <!-- Ajoutez d'autres options de catégorie selon vos besoins -->
+      <?php while($row = mysqli_fetch_assoc($stmt)){?>
+        <option value="<?php echo $row['nom'];?>"><?php echo $row['nom'];?></option>
+      <?php
+        }
+      ?>
       </select>
     </div>
 

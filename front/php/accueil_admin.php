@@ -8,25 +8,25 @@
 </head>
 <body>
     <?php
+    session_start();
         include_once('header_admin.php');
         @include_once '../../back/connexion.php';
-        $request = "SELECT * FROM products";
+        $request = "SELECT * FROM categorie";
         $stmt = mysqli_query($conn,$request);   
     ?>
     <section id="products_body">
         <div class="Categories">
+        <div class="Categories">
+          <?php while($row = mysqli_fetch_assoc($stmt)){?>
             <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
+            <a href=""><img src="../assets/img/<?php echo $row['image']?>.png" alt=""></a> 
+                <p><?php echo $row['nom']?></p>
             </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Raspberry</p>
-            </div>
-            <div class="categorie">
-            <a href=""><img src="../assets/img/arduino.jpg" alt=""></a> 
-                <p>Arduino</p>
-            </div>
+          <?php
+            }
+          ?>
+
+        </div>
 
             <div class="ajouter">
                 <a href="ajouter_pro.php">Ajouter produits</a>
@@ -58,7 +58,10 @@
                     <div class="container mt-5">
                         <div class="row">
                         <?php
-                                while($row = mysqli_fetch_assoc($stmt)){
+                                $req = "SELECT * FROM products";
+                                $stmt2 = mysqli_query($conn,$req);   
+                                while($row = mysqli_fetch_assoc($stmt2)){
+                                    $id = $row['reference'];
                             ?>
                             <!-- Product Card 1 -->
                             <div class="col-md-4 mb-4">
@@ -68,7 +71,7 @@
                                         <h5 class="card-title"><?php echo $row['ettiquette']; ?></h5>
                                         <p class="card-text"><?php echo $row['description']; ?></p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="modifier.php" class="btn btn-primary">Modifier</a>
+                                            <a href="modifier.php?edit=<?php echo $row['reference']; ?>" class="btn btn-primary">Modifier</a>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
                                         </div>
                                     </div>
@@ -98,7 +101,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <a href="supp_pro.php?delete=<?php echo $row['reference']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
                     </div>
                     </div>
                 </div>
