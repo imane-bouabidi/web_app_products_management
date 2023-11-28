@@ -19,7 +19,7 @@
         <div class="Categories">
           <?php while($row = mysqli_fetch_assoc($stmt)){?>
             <div class="categorie">
-            <a href=""><img src="../assets/img/<?php echo $row['image']?>.png" alt=""></a> 
+            <a href=""><img src="../assets/img/<?php echo $row['image']?>" alt=""></a> 
                 <p><?php echo $row['nom']?></p>
             </div>
           <?php
@@ -66,7 +66,7 @@
                             <!-- Product Card 1 -->
                             <div class="col-md-4 mb-4">
                                 <div class="card">
-                                    <img src="../assets/img/<?php echo $row['image']; ?>.png" class="card-img-top" alt="Product Image">
+                                    <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row['ettiquette']; ?></h5>
                                         <p class="card-text"><?php echo $row['description']; ?></p>
@@ -107,27 +107,7 @@
                 </div>
                 </div>
 
-                <!-- Delete Modal 2 -->
-                <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel2" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel2">Delete Product</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete Product 2?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
+          
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

@@ -36,12 +36,13 @@ if (isset($_POST['update_categorie'])) {
                 SET nom = '$name',
                     description = '$catDescription',
                     image = '$img'
-                WHERE nom  LIKE '%$nom%'";
+                WHERE nom like '%$nom%'";
     
     $stmt = mysqli_query($conn, $request);
     
     if ($stmt) {
         move_uploaded_file($cat_img_tmp, $cat_image_folder);
+        header('location: categories.php');
     } else {
         die("Échec de la connexion : " . mysqli_error($conn));
     }

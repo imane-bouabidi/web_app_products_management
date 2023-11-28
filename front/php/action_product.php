@@ -66,6 +66,7 @@ if(isset($_POST['modifier_pro'])){
 
         if ($stmt) {
         move_uploaded_file($pro_img_tmp, $pro_image_folder);
+        header('location: accueil_admin.php');
         } else {
         die("Échec de la connexion : " . mysqli_error($conn));
         }

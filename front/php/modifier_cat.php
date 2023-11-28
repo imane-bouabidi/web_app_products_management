@@ -41,7 +41,7 @@
       <!-- Choisir une image -->
       <div class="form-group">
         <label for="catImage">Image du Categorie :</label>
-        <img class="w-8" src="../assets/img/<?php echo $row['image']; ?>.png" class="card-img-top" alt="categorie Image">
+        <img class="w-8" src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="categorie Image">
         <input type="file" class="form-control-file" id="catImage" name="catImage">
       </div>
       <?php

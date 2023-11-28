@@ -18,7 +18,7 @@
         <div class="Categories">
           <?php while($row = mysqli_fetch_assoc($stmt)){?>
             <div class="categorie">
-            <a href=""><img src="../assets/img/<?php echo $row['image']?>.png" alt=""></a> 
+            <a href=""><img src="../assets/img/<?php echo $row['image']?>" alt=""></a> 
                 <p><?php echo $nom ?></p>
             </div>
           <?php
