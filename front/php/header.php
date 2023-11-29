@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Déconnexion</a>
+        <a class="nav-link" href="index.php">Déconnexion</a>
       </li>
     </ul>
   </div>

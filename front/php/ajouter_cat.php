@@ -10,7 +10,7 @@
 
 <body class="d-flex flex-column min-vh-100">
   <?php
-    include_once('header.php');
+  include_once('header_admin.php');
   ?>
   <div class="container mt-5">
     <h2>Ajouter une categorie</h2>
@@ -33,7 +33,7 @@
           <!-- Choisir une image -->
       <div class="form-group">
         <label for="catImage">Image du Categorie:</label>
-        <input required type="file" accept="image/png, image/jpg" class="form-control-file" id="catImage" name="catImage">
+        <input required type="file" accept="image/png, image/jpg, image/jpeg" class="form-control-file" id="catImage" name="catImage">
       </div>
 
       <!-- Bouton Soumettre -->

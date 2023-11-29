@@ -55,6 +55,7 @@ if (isset($_POST['update_categorie'])) {
 
 <!-- ------------------------------Supprimer categorie------------------------------------- -->
 <?php
+if (isset($_GET['delete'])) {
     $nom_cat = $_GET['delete'];
     $request = "DELETE FROM categorie WHERE nom like '%$nom_cat%' ";
     $stmt = mysqli_query($conn,$request);  
@@ -63,4 +64,5 @@ if (isset($_POST['update_categorie'])) {
         } else {
         die("Échec : " . mysqli_error($conn));
         }
+}
   ?>
