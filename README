@@ -1,0 +1,5 @@
+Cette repository contient le code source d une application web pour la gestion complète des produits électroniques et robotiques repartie sur deux dossiers:
+  - le dossier back qui contient le fichier connexion.php pour la connexion a la base de donnees, et le fichier database contenant les requettes sql pour la creation de la base de donnees et les tableaux, et aussi les cintraintes naicessaires;
+  - le dossier front qui contient deux dossier : 
+      * assets pour les images et les fichiers css
+      * le dossier php qui contient touts les fichiers php 
