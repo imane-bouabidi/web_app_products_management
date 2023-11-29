@@ -39,7 +39,7 @@
                                         <p class="card-text"><?php echo $desc; ?></p>
                                         <div class="d-flex justify-content-between">
                                             <a href="modifier_cat.php?edit_cat=<?php echo $row['nom']; ?>" class="btn btn-primary">Modifier</a>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
+                                            <a href="action_cat.php?delete=<?php echo $row['nom']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -51,28 +51,6 @@
                     </div>
                 </div>
             </div>
-
-                <!-- Delete Modal 1 -->
-                <div class="modal fade" id="deleteModal1" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel1" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel1">Delete Product</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete Product 1?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <a href="supp_pro.php?delete=<?php echo $row['reference']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
                 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

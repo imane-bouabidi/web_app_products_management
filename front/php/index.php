@@ -12,17 +12,17 @@
 </head>
 <body>
     
-    <form action="index_action.php">
+    <form action="action_sign.php" method="post">
         <div class="title">
             <h1>Sign In</h1>
         </div>
-        <input type="text" placeholder="User Name" required>
-        <input type="password" placeholder="Password" required>
+        <input type="text" name="login" placeholder="User Name" required>
+        <input type="password" name="password" placeholder="Password" required>
         <div class="chekbox-div">
-            <input type="checkbox" id="admin" name="admin">
+            <input name="is_admin" type="checkbox" id="admin" name="admin">
             <label for="admin">Je suis admin</label>
         </div>
-        <input type="Submit" value="S'authentifier">
+        <input type="Submit" name="submit_signin" value="S'authentifier">
         <div class="sign_up">
             <p>Nouveau ici ?, <a href="sign_up.php">Sign Up</a></p>
         </div>

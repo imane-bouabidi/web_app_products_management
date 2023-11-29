@@ -12,7 +12,7 @@
   <?php
     session_start();
     $nom_cat = $_GET['edit_cat'];
-    $_SESSION['nom'] = $nom_cat;
+    $_SESSION['nom_cat'] = $nom_cat;
     include_once('header_admin.php');
     @include_once '../../back/connexion.php';
     $request = "SELECT * FROM categorie WHERE nom = '$nom_cat' ";

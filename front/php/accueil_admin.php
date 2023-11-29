@@ -53,59 +53,38 @@
         </div>
         </section>
 
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="container mt-5">
-                        <div class="row">
-                        <?php
-                                $req = "SELECT * FROM products";
-                                $stmt2 = mysqli_query($conn,$req);   
-                                while($row = mysqli_fetch_assoc($stmt2)){
-                                    $id = $row['reference'];
-                            ?>
-                            <!-- Product Card 1 -->
-                            <div class="col-md-4 mb-4">
-                                <div class="card">
-                                    <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $row['ettiquette']; ?></h5>
-                                        <p class="card-text"><?php echo $row['description']; ?></p>
-                                        <div class="d-flex justify-content-between">
-                                            <a href="modifier.php?edit=<?php echo $row['reference']; ?>" class="btn btn-primary">Modifier</a>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button>
-                                        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="container mt-5">
+                    <div class="row">
+                    <?php
+                            $req = "SELECT * FROM products";
+                            $stmt2 = mysqli_query($conn,$req);   
+                            while($row = mysqli_fetch_assoc($stmt2)){
+                                $id = $row['reference'];
+                        ?>
+                        <!-- Product Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $row['ettiquette']; ?></h5>
+                                    <p class="card-text"><?php echo $row['description']; ?></p>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="modifier.php?edit=<?php echo $row['reference']; ?>" class="btn btn-primary">Modifier</a>
+                                        <a href="action_product.php?delete=<?php echo $id; ?>"><button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal1">Supprimer</button></a>
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                                }
-                            ?>
-                            
                         </div>
+                        <?php
+                            }
+                        ?>
+                        
                     </div>
                 </div>
             </div>
-
-                <!-- Delete Modal 1 -->
-                <div class="modal fade" id="deleteModal1" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel1" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel1">Delete Product</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete Product 1?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <a href="supp_pro.php?delete=<?php echo $row['reference']; ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
-                    </div>
-                    </div>
-                </div>
-                </div>
+        </div>
 
           
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

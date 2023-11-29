@@ -1,7 +1,7 @@
 create database if not EXISTS electro_nacer_app;
 use electro_nacer_app;
-create table if not EXISTS `user`(
-	email varchar(20),
+create table if not EXISTS `users`(
+	  email varchar(20),
     password varchar(20),
     login varchar(20),
     active_account boolean
@@ -9,10 +9,12 @@ create table if not EXISTS `user`(
 
 
 create table if not EXISTS `admin`(
-	email varchar(20),
+	  email varchar(20),
     password varchar(20),
     login varchar(20)
 );
+
+INSERT INTO `admin` (`email`, `password`, `login`) VALUES ('admin@gmail.com', '1234', 'admin'), ('admin2@gmail.com', '1234', 'admin2');
 
 create table if not EXISTS `products`(
 	  reference varchar(20),

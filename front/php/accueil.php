@@ -12,14 +12,14 @@
         @include_once '../../back/connexion.php';
         $request = "SELECT * FROM categorie";
         $stmt = mysqli_query($conn,$request);   
-        $nom = $row['nom'];
+        // $nom = $row['nom'];
     ?>
     <section id="products_body">
         <div class="Categories">
           <?php while($row = mysqli_fetch_assoc($stmt)){?>
             <div class="categorie">
             <a href=""><img src="../assets/img/<?php echo $row['image']?>" alt=""></a> 
-                <p><?php echo $nom ?></p>
+                <p><?php echo $row['nom'] ?></p>
             </div>
           <?php
             }
@@ -50,91 +50,34 @@
         <div class="container mt-5">
   <div class="row">
 
-    <!-- Carte de Produit 1 -->
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
+  <div class="container mt-5">
+            <div class="row">
+                <div class="container mt-5">
+                    <div class="row">
+                    <?php
+                            $req = "SELECT * FROM products";
+                            $stmt2 = mysqli_query($conn,$req);   
+                            while($row = mysqli_fetch_assoc($stmt2)){
+                                $id = $row['reference'];
+                        ?>
+                        <!-- Product Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $row['ettiquette']; ?></h5>
+                                    <p class="card-text"><?php echo $row['description']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card">
-        <img src="../assets/img/atmel.jpg" class="card-img-top" alt="Produit 1">
-        <div class="card-body">
-          <h5 class="card-title">Produit 1</h5>
-          <p class="card-text">Description du produit 1.</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-          <p class="card-price">$19.99</p>
-        </div>
-      </div>
-    </div>
 
 
   </div>

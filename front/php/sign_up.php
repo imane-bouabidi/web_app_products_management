@@ -12,14 +12,14 @@
 </head>
 <body>
     
-    <form action="index_action.php">
+    <form action="action_sign.php" method="post">
         <div class="title">
             <h1>Sign Up</h1>
         </div>
-        <input type="text" placeholder="User Name" required>
-        <input type="Email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <input type="Submit" value="S'authentifier" link="accueil.php">
+        <input type="text" name="login" placeholder="User Name" required>
+        <input type="Email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="Submit" name="sign_up" value="S'authentifier" link="accueil.php">
         <div class="sign_up">
             <p>Deja membre ?, <a href="index.php">Sign In</a></p>
         </div>

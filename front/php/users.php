@@ -9,11 +9,11 @@
 </head>
 <body>
 <?php
-        include_once('header_admin.php');
-        @include_once '../../back/connexion.php';
-        $request = "SELECT * FROM users";
-        $stmt = mysqli_query($conn,$request);   
-    ?>
+    include_once('header_admin.php');
+    @include_once '../../back/connexion.php';
+    $request = "SELECT * FROM users";
+    $stmt = mysqli_query($conn,$request);   
+?>
             <div class="ajouter">
                 <a href="ajouter_user.php">Ajouter user</a>
             </div>
@@ -41,9 +41,9 @@
         <td><?php echo $row['password'] ?></td>
         <td><?php echo $row['active_account'] ?></td>
         <td>
-          <button type="button" class="btn btn-success">Valider</button>
-          <button type="button" class="btn btn-danger">Supprimer</button>
-          <button type="button" class="btn btn-primary">Promouvoir Admin</button>
+          <a href="action_users.php?valider=<?php echo $row['email'];?>"><button type="button" name="valider_compte" class="btn btn-success">Valider</button></a>
+          <a href="action_users.php?supprimer=<?php echo $row['email'];?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
+          <a href="action_users.php?rendre_admin=<?php echo $row['email'];?>"><button type="button" class="btn btn-primary">Promouvoir Admin</button></a>
         </td>
       </tr>
       <?php

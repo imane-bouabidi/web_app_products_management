@@ -73,3 +73,22 @@ if(isset($_POST['modifier_pro'])){
     }
 
 ?>
+
+
+
+
+
+
+
+<!-- ------------------------------Supprimer produit------------------------------------- -->
+<?php
+    session_start();
+    $id_pro = $_GET['delete'];
+    $request = "DELETE FROM products WHERE reference = '$id_pro' ";
+    $stmt = mysqli_query($conn,$request);  
+    if ($stmt) {
+        header('location: accueil_admin.php');
+        } else {
+        die("Échec : " . mysqli_error($conn));
+        }
+  ?>
