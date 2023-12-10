@@ -66,7 +66,7 @@
     <!-- Offre Prix -->
     <div class="form-group">
       <label for="unitPrice">Offre Prix:</label>
-      <input required type="number" step="0.01" class="form-control" id="offre_prix" name="offre_prix" value="19.99">
+      <input type="number" step="0.01" class="form-control" id="offre_prix" name="offre_prix" value="19.99">
     </div>
 
     <!-- Catégorie -->

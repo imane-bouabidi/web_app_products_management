@@ -17,6 +17,9 @@
     ?>
     <section id="products_body">
         <div class="Categories">
+                <div class="categorie">
+                    <a href="?cat=all" style="color:black;text-decoration:none;">All</a> 
+                </div>
             <?php while($row = mysqli_fetch_assoc($stmt)){?>
                 <div class="categorie">
                     <a href="?cat=<?php echo $row['nom']; ?>"><img src="../assets/img/<?php echo $row['image']?>" alt=""></a> 
@@ -24,28 +27,33 @@
                 </div>
             <?php } ?>
             <div class="ajouter">
-                <a href="ajouter_pro.php">Ajouter produits</a>
+                <a href="ajouter_pro.php"  style="text-decoration:none;">Ajouter produits</a>
             </div>
         </div>
-        <div class="filtres">
-            <h2>Prix</h2>
-            <div class="chekbox-div">
-                <input type="radio" id="Pas_chere" name="prix" value="Pas_chere">
-                <label for="Pas_chere">Pas chere</label>
+        <form method="get" action="">
+            <div class="filtres">
+                <h2>Prix</h2>
+                <div class="chekbox-div">
+                    <input type="radio" id="Pas_chere" name="prix" value="Pas_chere">
+                    <label for="Pas_chere">1-50</label>
+                </div>
+                <div class="chekbox-div">
+                    <input type="radio" id="Bon" name="prix" value="Bon">
+                    <label for="Bon">50-100</label>
+                </div>
+                <div class="chekbox-div">
+                    <input type="radio" id="chere" name="prix" value="chere">
+                    <label for="chere">plus chere que 100</label>
+                </div>
+                <div class="chekbox-div">
+                    <input type="checkbox" id="solde" name="solde">
+                    <label for="solde">Offre solde</label>
+                </div>
+                <div class="chekbox-div">
+                    <button type="submit" name="filterButton">Filtrer</button>
+                </div>
             </div>
-            <div class="chekbox-div">
-                <input type="radio" id="Bon" name="prix" value="Bon">
-                <label for="Bon">Bon</label>
-            </div>
-            <div class="chekbox-div">
-                <input type="radio" id="chere" name="prix" value="chere">
-                <label for="chere">Chere</label>
-            </div>
-            <div class="chekbox-div">
-                <input type="checkbox" id="solde" name="solde">
-                <label for="solde">Offre solde</label>
-            </div>
-        </div>
+        </form>
     </section>
 
     <div class="container mt-5">
@@ -53,11 +61,16 @@
             <div class="container mt-5">
                 <div class="row">
                     <?php
+                    // filtrage par categorie
                     if (isset($_GET['cat'])) {
-                        $filtre .= " AND categorie = '" . $_GET['cat'] . "'";
+                        if($_GET['cat']=='all'){
+                            $filtre .= " AND 1 ";
+                        }else{
+                            $filtre .= " AND categorie = '" . $_GET['cat'] . "'";
+                        }
                     }
-
-                    if (isset($_GET['prix'])) {
+                    // filtrage par prix
+                    if (isset($_GET['prix'])&&isset($_GET['filterButton'])) {
                         switch ($_GET['prix']) {
                             case 'Pas_chere':
                                 $filtre .= " AND prix_final < 50"; 
@@ -69,14 +82,23 @@
                                 $filtre .= " AND prix_final > 100"; 
                         }
                     }
+                    // filtrage par solde
+                    if (isset($_GET['solde']) && isset($_GET['filterButton'])) {
+                        $filtre .= " AND offre_prix !=0";
+                    }
 
-                    $req = "SELECT * FROM products WHERE 1 $filtre";
-                    $stmt2 = mysqli_query($conn, $req);
+                    // Pagination
+                        $itemsPerPage = 3; // Number of items per page
+                        $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page, default is 1
+                        $offset = ($page - 1) * $itemsPerPage; // Offset for SQL query
 
-                    while($row = mysqli_fetch_assoc($stmt2)){
-                        $id = $row['reference'];
-                        ?>
-                        <!-- Product Card 1 -->
+                        $req = "SELECT * FROM products WHERE 1 $filtre LIMIT $offset, $itemsPerPage";
+                        $stmt2 = mysqli_query($conn, $req);
+
+                        while($row = mysqli_fetch_assoc($stmt2)){
+                            $id = $row['reference'];
+                    ?>
+                        <!-- Product Card -->
                         <div class="col-md-4 mb-4">
                             <div class="card">
                                 <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="Product Image">
@@ -97,6 +119,17 @@
                     }
                     ?>
                 </div>
+                <!-- Pagination links -->
+                <?php
+                $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM products WHERE 1 $filtre");
+                $row = mysqli_fetch_assoc($result);
+                $totalItems = $row['total'];
+                $totalPages = ceil($totalItems / $itemsPerPage);
+
+                for ($i = 1; $i <= $totalPages; $i++) {
+                    echo '<a href="?page=' . $i . '">' . $i . '</a> ';
+                }
+                ?>
             </div>
         </div>
     </div>
